@@ -79,7 +79,7 @@ QTreeWidget {
      <string notr="true"/>
     </property>
     <property name="tabShape">
-     <enum>QTabWidget::Triangular</enum>
+     <enum>QTabWidget::TabShape::Triangular</enum>
     </property>
     <property name="currentIndex">
      <number>0</number>
@@ -104,10 +104,10 @@ QTreeWidget {
        </rect>
       </property>
       <property name="frameShape">
-       <enum>QFrame::NoFrame</enum>
+       <enum>QFrame::Shape::NoFrame</enum>
       </property>
       <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
+       <enum>QFrame::Shadow::Raised</enum>
       </property>
       <widget class="QGroupBox" name="groupBoxCurrentCPUTemp">
        <property name="geometry">
@@ -121,7 +121,6 @@ QTreeWidget {
        <property name="font">
         <font>
          <pointsize>10</pointsize>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -146,7 +145,6 @@ QTreeWidget {
         <property name="font">
          <font>
           <pointsize>15</pointsize>
-          <weight>50</weight>
           <bold>false</bold>
          </font>
         </property>
@@ -166,12 +164,11 @@ QTreeWidget {
         <property name="font">
          <font>
           <pointsize>15</pointsize>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
         <property name="frameShape">
-         <enum>QFrame::NoFrame</enum>
+         <enum>QFrame::Shape::NoFrame</enum>
         </property>
         <property name="digitCount">
          <number>3</number>
@@ -190,7 +187,6 @@ QTreeWidget {
        <property name="font">
         <font>
          <pointsize>10</pointsize>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -209,7 +205,6 @@ QTreeWidget {
         <property name="font">
          <font>
           <pointsize>10</pointsize>
-          <weight>50</weight>
           <bold>false</bold>
          </font>
         </property>
@@ -235,7 +230,6 @@ QTreeWidget {
         <property name="font">
          <font>
           <pointsize>10</pointsize>
-          <weight>50</weight>
           <bold>false</bold>
          </font>
         </property>
@@ -255,7 +249,6 @@ QTreeWidget {
         <property name="font">
          <font>
           <pointsize>10</pointsize>
-          <weight>50</weight>
           <bold>false</bold>
          </font>
         </property>
@@ -302,10 +295,10 @@ QTreeWidget {
           <number>0</number>
          </property>
          <property name="orientation">
-          <enum>Qt::Horizontal</enum>
+          <enum>Qt::Orientation::Horizontal</enum>
          </property>
          <property name="tickPosition">
-          <enum>QSlider::NoTicks</enum>
+          <enum>QSlider::TickPosition::NoTicks</enum>
          </property>
          <property name="tickInterval">
           <number>0</number>
@@ -322,12 +315,11 @@ QTreeWidget {
          </property>
          <property name="font">
           <font>
-           <weight>50</weight>
            <bold>false</bold>
           </font>
          </property>
          <property name="frameShape">
-          <enum>QFrame::NoFrame</enum>
+          <enum>QFrame::Shape::NoFrame</enum>
          </property>
          <property name="digitCount">
           <number>3</number>
@@ -352,7 +344,6 @@ QTreeWidget {
         <property name="font">
          <font>
           <pointsize>10</pointsize>
-          <weight>50</weight>
           <bold>false</bold>
          </font>
         </property>
@@ -399,7 +390,7 @@ QTreeWidget {
           <number>0</number>
          </property>
          <property name="orientation">
-          <enum>Qt::Horizontal</enum>
+          <enum>Qt::Orientation::Horizontal</enum>
          </property>
         </widget>
         <widget class="QLCDNumber" name="lcdNumberFan2">
@@ -413,12 +404,11 @@ QTreeWidget {
          </property>
          <property name="font">
           <font>
-           <weight>50</weight>
            <bold>false</bold>
           </font>
          </property>
          <property name="frameShape">
-          <enum>QFrame::NoFrame</enum>
+          <enum>QFrame::Shape::NoFrame</enum>
          </property>
          <property name="digitCount">
           <number>3</number>
@@ -443,7 +433,6 @@ QTreeWidget {
         <property name="font">
          <font>
           <pointsize>10</pointsize>
-          <weight>50</weight>
           <bold>false</bold>
          </font>
         </property>
@@ -490,7 +479,7 @@ QTreeWidget {
           <number>0</number>
          </property>
          <property name="orientation">
-          <enum>Qt::Horizontal</enum>
+          <enum>Qt::Orientation::Horizontal</enum>
          </property>
         </widget>
         <widget class="QLCDNumber" name="lcdNumberFan3">
@@ -504,12 +493,11 @@ QTreeWidget {
          </property>
          <property name="font">
           <font>
-           <weight>50</weight>
            <bold>false</bold>
           </font>
          </property>
          <property name="frameShape">
-          <enum>QFrame::NoFrame</enum>
+          <enum>QFrame::Shape::NoFrame</enum>
          </property>
          <property name="digitCount">
           <number>3</number>
@@ -534,7 +522,6 @@ QTreeWidget {
         <property name="font">
          <font>
           <pointsize>10</pointsize>
-          <weight>50</weight>
           <bold>false</bold>
          </font>
         </property>
@@ -581,7 +568,7 @@ QTreeWidget {
           <number>0</number>
          </property>
          <property name="orientation">
-          <enum>Qt::Horizontal</enum>
+          <enum>Qt::Orientation::Horizontal</enum>
          </property>
         </widget>
         <widget class="QLCDNumber" name="lcdNumberFan4">
@@ -595,12 +582,11 @@ QTreeWidget {
          </property>
          <property name="font">
           <font>
-           <weight>50</weight>
            <bold>false</bold>
           </font>
          </property>
          <property name="frameShape">
-          <enum>QFrame::NoFrame</enum>
+          <enum>QFrame::Shape::NoFrame</enum>
          </property>
          <property name="digitCount">
           <number>3</number>
@@ -625,7 +611,6 @@ QTreeWidget {
         <property name="font">
          <font>
           <pointsize>10</pointsize>
-          <weight>50</weight>
           <bold>false</bold>
          </font>
         </property>
@@ -672,7 +657,7 @@ QTreeWidget {
           <number>0</number>
          </property>
          <property name="orientation">
-          <enum>Qt::Horizontal</enum>
+          <enum>Qt::Orientation::Horizontal</enum>
          </property>
         </widget>
         <widget class="QLCDNumber" name="lcdNumberFan6">
@@ -686,12 +671,11 @@ QTreeWidget {
          </property>
          <property name="font">
           <font>
-           <weight>50</weight>
            <bold>false</bold>
           </font>
          </property>
          <property name="frameShape">
-          <enum>QFrame::NoFrame</enum>
+          <enum>QFrame::Shape::NoFrame</enum>
          </property>
          <property name="digitCount">
           <number>3</number>
@@ -716,7 +700,6 @@ QTreeWidget {
         <property name="font">
          <font>
           <pointsize>10</pointsize>
-          <weight>50</weight>
           <bold>false</bold>
          </font>
         </property>
@@ -763,7 +746,7 @@ QTreeWidget {
           <number>0</number>
          </property>
          <property name="orientation">
-          <enum>Qt::Horizontal</enum>
+          <enum>Qt::Orientation::Horizontal</enum>
          </property>
         </widget>
         <widget class="QLCDNumber" name="lcdNumberFan5">
@@ -777,12 +760,11 @@ QTreeWidget {
          </property>
          <property name="font">
           <font>
-           <weight>50</weight>
            <bold>false</bold>
           </font>
          </property>
          <property name="frameShape">
-          <enum>QFrame::NoFrame</enum>
+          <enum>QFrame::Shape::NoFrame</enum>
          </property>
          <property name="digitCount">
           <number>3</number>
@@ -810,7 +792,6 @@ QTreeWidget {
         <property name="font">
          <font>
           <pointsize>8</pointsize>
-          <weight>50</weight>
           <bold>false</bold>
          </font>
         </property>
@@ -848,7 +829,7 @@ QTreeWidget {
           <number>100</number>
          </property>
          <property name="orientation">
-          <enum>Qt::Horizontal</enum>
+          <enum>Qt::Orientation::Horizontal</enum>
          </property>
         </widget>
         <widget class="QSlider" name="horizontalSliderGPUTemp">
@@ -864,7 +845,7 @@ QTreeWidget {
           <number>100</number>
          </property>
          <property name="orientation">
-          <enum>Qt::Horizontal</enum>
+          <enum>Qt::Orientation::Horizontal</enum>
          </property>
         </widget>
         <widget class="QLabel" name="labelCPU">
@@ -917,7 +898,6 @@ QTreeWidget {
        <property name="font">
         <font>
          <pointsize>10</pointsize>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -936,7 +916,6 @@ QTreeWidget {
         <property name="font">
          <font>
           <pointsize>8</pointsize>
-          <weight>50</weight>
           <bold>false</bold>
          </font>
         </property>
@@ -955,12 +934,11 @@ QTreeWidget {
          <property name="font">
           <font>
            <pointsize>10</pointsize>
-           <weight>50</weight>
            <bold>false</bold>
           </font>
          </property>
          <property name="frameShape">
-          <enum>QFrame::NoFrame</enum>
+          <enum>QFrame::Shape::NoFrame</enum>
          </property>
          <property name="text">
           <string/>
@@ -984,7 +962,6 @@ QTreeWidget {
          <property name="font">
           <font>
            <pointsize>8</pointsize>
-           <weight>50</weight>
            <bold>false</bold>
           </font>
          </property>
@@ -1004,7 +981,6 @@ QTreeWidget {
          <property name="font">
           <font>
            <pointsize>8</pointsize>
-           <weight>50</weight>
            <bold>false</bold>
           </font>
          </property>
@@ -1024,7 +1000,6 @@ QTreeWidget {
          <property name="font">
           <font>
            <pointsize>8</pointsize>
-           <weight>50</weight>
            <bold>false</bold>
           </font>
          </property>
@@ -1044,7 +1019,6 @@ QTreeWidget {
          <property name="font">
           <font>
            <pointsize>8</pointsize>
-           <weight>50</weight>
            <bold>false</bold>
           </font>
          </property>
@@ -1065,7 +1039,6 @@ QTreeWidget {
         <property name="font">
          <font>
           <pointsize>8</pointsize>
-          <weight>50</weight>
           <bold>false</bold>
          </font>
         </property>
@@ -1084,7 +1057,6 @@ QTreeWidget {
          <property name="font">
           <font>
            <pointsize>8</pointsize>
-           <weight>50</weight>
            <bold>false</bold>
           </font>
          </property>
@@ -1104,7 +1076,6 @@ QTreeWidget {
          <property name="font">
           <font>
            <pointsize>8</pointsize>
-           <weight>50</weight>
            <bold>false</bold>
           </font>
          </property>
@@ -1124,12 +1095,11 @@ QTreeWidget {
          <property name="font">
           <font>
            <pointsize>10</pointsize>
-           <weight>50</weight>
            <bold>false</bold>
           </font>
          </property>
          <property name="frameShape">
-          <enum>QFrame::NoFrame</enum>
+          <enum>QFrame::Shape::NoFrame</enum>
          </property>
          <property name="text">
           <string/>
@@ -1153,7 +1123,6 @@ QTreeWidget {
          <property name="font">
           <font>
            <pointsize>8</pointsize>
-           <weight>50</weight>
            <bold>false</bold>
           </font>
          </property>
@@ -1173,7 +1142,6 @@ QTreeWidget {
          <property name="font">
           <font>
            <pointsize>8</pointsize>
-           <weight>50</weight>
            <bold>false</bold>
           </font>
          </property>
@@ -1194,7 +1162,6 @@ QTreeWidget {
         <property name="font">
          <font>
           <pointsize>8</pointsize>
-          <weight>50</weight>
           <bold>false</bold>
          </font>
         </property>
@@ -1213,7 +1180,6 @@ QTreeWidget {
          <property name="font">
           <font>
            <pointsize>8</pointsize>
-           <weight>50</weight>
            <bold>false</bold>
           </font>
          </property>
@@ -1233,7 +1199,6 @@ QTreeWidget {
          <property name="font">
           <font>
            <pointsize>8</pointsize>
-           <weight>50</weight>
            <bold>false</bold>
           </font>
          </property>
@@ -1253,12 +1218,11 @@ QTreeWidget {
          <property name="font">
           <font>
            <pointsize>10</pointsize>
-           <weight>50</weight>
            <bold>false</bold>
           </font>
          </property>
          <property name="frameShape">
-          <enum>QFrame::NoFrame</enum>
+          <enum>QFrame::Shape::NoFrame</enum>
          </property>
          <property name="text">
           <string/>
@@ -1282,7 +1246,6 @@ QTreeWidget {
          <property name="font">
           <font>
            <pointsize>8</pointsize>
-           <weight>50</weight>
            <bold>false</bold>
           </font>
          </property>
@@ -1302,7 +1265,6 @@ QTreeWidget {
          <property name="font">
           <font>
            <pointsize>8</pointsize>
-           <weight>50</weight>
            <bold>false</bold>
           </font>
          </property>
@@ -1323,7 +1285,6 @@ QTreeWidget {
         <property name="font">
          <font>
           <pointsize>8</pointsize>
-          <weight>50</weight>
           <bold>false</bold>
          </font>
         </property>
@@ -1342,7 +1303,6 @@ QTreeWidget {
          <property name="font">
           <font>
            <pointsize>8</pointsize>
-           <weight>50</weight>
            <bold>false</bold>
           </font>
          </property>
@@ -1362,7 +1322,6 @@ QTreeWidget {
          <property name="font">
           <font>
            <pointsize>8</pointsize>
-           <weight>50</weight>
            <bold>false</bold>
           </font>
          </property>
@@ -1382,12 +1341,11 @@ QTreeWidget {
          <property name="font">
           <font>
            <pointsize>10</pointsize>
-           <weight>50</weight>
            <bold>false</bold>
           </font>
          </property>
          <property name="frameShape">
-          <enum>QFrame::NoFrame</enum>
+          <enum>QFrame::Shape::NoFrame</enum>
          </property>
          <property name="text">
           <string/>
@@ -1411,7 +1369,6 @@ QTreeWidget {
          <property name="font">
           <font>
            <pointsize>8</pointsize>
-           <weight>50</weight>
            <bold>false</bold>
           </font>
          </property>
@@ -1431,7 +1388,6 @@ QTreeWidget {
          <property name="font">
           <font>
            <pointsize>8</pointsize>
-           <weight>50</weight>
            <bold>false</bold>
           </font>
          </property>
@@ -1452,7 +1408,6 @@ QTreeWidget {
         <property name="font">
          <font>
           <pointsize>8</pointsize>
-          <weight>50</weight>
           <bold>false</bold>
          </font>
         </property>
@@ -1471,7 +1426,6 @@ QTreeWidget {
          <property name="font">
           <font>
            <pointsize>8</pointsize>
-           <weight>50</weight>
            <bold>false</bold>
           </font>
          </property>
@@ -1491,7 +1445,6 @@ QTreeWidget {
          <property name="font">
           <font>
            <pointsize>8</pointsize>
-           <weight>50</weight>
            <bold>false</bold>
           </font>
          </property>
@@ -1511,12 +1464,11 @@ QTreeWidget {
          <property name="font">
           <font>
            <pointsize>10</pointsize>
-           <weight>50</weight>
            <bold>false</bold>
           </font>
          </property>
          <property name="frameShape">
-          <enum>QFrame::NoFrame</enum>
+          <enum>QFrame::Shape::NoFrame</enum>
          </property>
          <property name="text">
           <string/>
@@ -1540,7 +1492,6 @@ QTreeWidget {
          <property name="font">
           <font>
            <pointsize>8</pointsize>
-           <weight>50</weight>
            <bold>false</bold>
           </font>
          </property>
@@ -1560,7 +1511,6 @@ QTreeWidget {
          <property name="font">
           <font>
            <pointsize>8</pointsize>
-           <weight>50</weight>
            <bold>false</bold>
           </font>
          </property>
@@ -1581,7 +1531,6 @@ QTreeWidget {
         <property name="font">
          <font>
           <pointsize>8</pointsize>
-          <weight>50</weight>
           <bold>false</bold>
          </font>
         </property>
@@ -1600,7 +1549,6 @@ QTreeWidget {
          <property name="font">
           <font>
            <pointsize>8</pointsize>
-           <weight>50</weight>
            <bold>false</bold>
           </font>
          </property>
@@ -1620,7 +1568,6 @@ QTreeWidget {
          <property name="font">
           <font>
            <pointsize>8</pointsize>
-           <weight>50</weight>
            <bold>false</bold>
           </font>
          </property>
@@ -1640,12 +1587,11 @@ QTreeWidget {
          <property name="font">
           <font>
            <pointsize>10</pointsize>
-           <weight>50</weight>
            <bold>false</bold>
           </font>
          </property>
          <property name="frameShape">
-          <enum>QFrame::NoFrame</enum>
+          <enum>QFrame::Shape::NoFrame</enum>
          </property>
          <property name="text">
           <string/>
@@ -1669,7 +1615,6 @@ QTreeWidget {
          <property name="font">
           <font>
            <pointsize>8</pointsize>
-           <weight>50</weight>
            <bold>false</bold>
           </font>
          </property>
@@ -1689,7 +1634,6 @@ QTreeWidget {
          <property name="font">
           <font>
            <pointsize>8</pointsize>
-           <weight>50</weight>
            <bold>false</bold>
           </font>
          </property>
@@ -1711,12 +1655,11 @@ QTreeWidget {
        <property name="font">
         <font>
          <pointsize>10</pointsize>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
        <property name="title">
-        <string>Open Hardware Monitor</string>
+        <string>Libre Hardware Monitor</string>
        </property>
        <widget class="QLabel" name="label_151">
         <property name="geometry">
@@ -1730,7 +1673,6 @@ QTreeWidget {
         <property name="font">
          <font>
           <pointsize>10</pointsize>
-          <weight>50</weight>
           <bold>false</bold>
          </font>
         </property>
@@ -1750,7 +1692,6 @@ QTreeWidget {
         <property name="font">
          <font>
           <pointsize>10</pointsize>
-          <weight>50</weight>
           <bold>false</bold>
          </font>
         </property>
@@ -1771,7 +1712,6 @@ QTreeWidget {
        <property name="font">
         <font>
          <pointsize>10</pointsize>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -1790,7 +1730,6 @@ QTreeWidget {
         <property name="font">
          <font>
           <pointsize>10</pointsize>
-          <weight>50</weight>
           <bold>false</bold>
          </font>
         </property>
@@ -1810,7 +1749,6 @@ QTreeWidget {
         <property name="font">
          <font>
           <pointsize>10</pointsize>
-          <weight>50</weight>
           <bold>false</bold>
          </font>
         </property>
@@ -1853,7 +1791,6 @@ QTreeWidget {
         <property name="font">
          <font>
           <pointsize>10</pointsize>
-          <weight>50</weight>
           <bold>false</bold>
          </font>
         </property>
@@ -1873,7 +1810,6 @@ QTreeWidget {
         <property name="font">
          <font>
           <pointsize>10</pointsize>
-          <weight>50</weight>
           <bold>false</bold>
          </font>
         </property>
@@ -1915,7 +1851,6 @@ QTreeWidget {
         <property name="font">
          <font>
           <pointsize>10</pointsize>
-          <weight>50</weight>
           <bold>false</bold>
          </font>
         </property>
@@ -1936,7 +1871,6 @@ QTreeWidget {
        <property name="font">
         <font>
          <pointsize>10</pointsize>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -1955,7 +1889,6 @@ QTreeWidget {
         <property name="font">
          <font>
           <pointsize>15</pointsize>
-          <weight>50</weight>
           <bold>false</bold>
          </font>
         </property>
@@ -1975,12 +1908,11 @@ QTreeWidget {
         <property name="font">
          <font>
           <pointsize>15</pointsize>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
         <property name="frameShape">
-         <enum>QFrame::NoFrame</enum>
+         <enum>QFrame::Shape::NoFrame</enum>
         </property>
         <property name="digitCount">
          <number>3</number>
@@ -2018,7 +1950,6 @@ QTreeWidget {
        <property name="font">
         <font>
          <pointsize>10</pointsize>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -2037,7 +1968,6 @@ QTreeWidget {
         <property name="font">
          <font>
           <pointsize>10</pointsize>
-          <weight>50</weight>
           <bold>false</bold>
          </font>
         </property>
@@ -2057,7 +1987,6 @@ QTreeWidget {
         <property name="font">
          <font>
           <pointsize>10</pointsize>
-          <weight>50</weight>
           <bold>false</bold>
          </font>
         </property>
@@ -2136,10 +2065,10 @@ QTreeWidget {
        </rect>
       </property>
       <property name="frameShape">
-       <enum>QFrame::NoFrame</enum>
+       <enum>QFrame::Shape::NoFrame</enum>
       </property>
       <property name="frameShadow">
-       <enum>QFrame::Sunken</enum>
+       <enum>QFrame::Shadow::Sunken</enum>
       </property>
       <property name="lineWidth">
        <number>2</number>
@@ -2342,7 +2271,6 @@ QTreeWidget {
        <property name="font">
         <font>
          <pointsize>10</pointsize>
-         <weight>50</weight>
          <bold>false</bold>
         </font>
        </property>
@@ -2364,7 +2292,7 @@ QTreeWidget {
          </font>
         </property>
         <property name="frameShape">
-         <enum>QFrame::NoFrame</enum>
+         <enum>QFrame::Shape::NoFrame</enum>
         </property>
         <property name="columnCount">
          <number>3</number>
@@ -2521,7 +2449,6 @@ QTreeWidget {
       <property name="font">
        <font>
         <pointsize>10</pointsize>
-        <weight>50</weight>
         <bold>false</bold>
        </font>
       </property>
@@ -2910,7 +2837,6 @@ QTreeWidget {
       <property name="font">
        <font>
         <pointsize>10</pointsize>
-        <weight>50</weight>
         <bold>false</bold>
        </font>
       </property>
@@ -3299,7 +3225,6 @@ QTreeWidget {
       <property name="font">
        <font>
         <pointsize>10</pointsize>
-        <weight>50</weight>
         <bold>false</bold>
        </font>
       </property>
@@ -3688,7 +3613,6 @@ QTreeWidget {
       <property name="font">
        <font>
         <pointsize>10</pointsize>
-        <weight>50</weight>
         <bold>false</bold>
        </font>
       </property>
@@ -4077,7 +4001,6 @@ QTreeWidget {
       <property name="font">
        <font>
         <pointsize>10</pointsize>
-        <weight>50</weight>
         <bold>false</bold>
        </font>
       </property>
@@ -4466,7 +4389,6 @@ QTreeWidget {
       <property name="font">
        <font>
         <pointsize>10</pointsize>
-        <weight>50</weight>
         <bold>false</bold>
        </font>
       </property>
@@ -4866,7 +4788,6 @@ QTreeWidget {
       <property name="font">
        <font>
         <pointsize>10</pointsize>
-        <weight>50</weight>
         <bold>false</bold>
        </font>
       </property>
@@ -4885,7 +4806,6 @@ QTreeWidget {
        <property name="font">
         <font>
          <pointsize>10</pointsize>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -4905,7 +4825,6 @@ QTreeWidget {
        <property name="font">
         <font>
          <pointsize>10</pointsize>
-         <weight>50</weight>
          <bold>false</bold>
         </font>
        </property>
@@ -4925,7 +4844,6 @@ QTreeWidget {
        <property name="font">
         <font>
          <pointsize>10</pointsize>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -4945,7 +4863,6 @@ QTreeWidget {
        <property name="font">
         <font>
          <pointsize>10</pointsize>
-         <weight>50</weight>
          <bold>false</bold>
         </font>
        </property>
@@ -4965,7 +4882,6 @@ QTreeWidget {
        <property name="font">
         <font>
          <pointsize>10</pointsize>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -4985,7 +4901,6 @@ QTreeWidget {
        <property name="font">
         <font>
          <pointsize>10</pointsize>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -5005,7 +4920,6 @@ QTreeWidget {
        <property name="font">
         <font>
          <pointsize>10</pointsize>
-         <weight>50</weight>
          <bold>false</bold>
         </font>
        </property>
@@ -5025,7 +4939,6 @@ QTreeWidget {
        <property name="font">
         <font>
          <pointsize>10</pointsize>
-         <weight>50</weight>
          <bold>false</bold>
         </font>
        </property>
@@ -5045,7 +4958,6 @@ QTreeWidget {
        <property name="font">
         <font>
          <pointsize>10</pointsize>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -5065,7 +4977,6 @@ QTreeWidget {
        <property name="font">
         <font>
          <pointsize>10</pointsize>
-         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -5085,7 +4996,6 @@ QTreeWidget {
        <property name="font">
         <font>
          <pointsize>10</pointsize>
-         <weight>50</weight>
          <bold>false</bold>
         </font>
        </property>
@@ -5105,7 +5015,6 @@ QTreeWidget {
        <property name="font">
         <font>
          <pointsize>10</pointsize>
-         <weight>50</weight>
          <bold>false</bold>
         </font>
        </property>
@@ -5142,7 +5051,7 @@ QTreeWidget {
      <x>0</x>
      <y>0</y>
      <width>1033</width>
-     <height>26</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>

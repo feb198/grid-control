@@ -4,9 +4,9 @@
     Implements functions for reading and writing UI configuration using a QSettings object.
 """
 
-from PyQt5 import QtCore, QtWidgets, QtGui
+from PySide6 import QtCore, QtWidgets, QtGui
 
-import openhwmon
+import librehwmon
 
 
 def read_settings(config, ui, hwmon):
@@ -56,11 +56,11 @@ def read_settings(config, ui, hwmon):
     # ------------------------
 
     # Get all available temperature sensors
-    sensors = openhwmon.get_temperature_sensors(hwmon)
+    sensors = librehwmon.get_temperature_sensors(hwmon)
 
     # Selected CPU sensors
     parent = ui.treeWidgetSelectedCPUSensors
-    for id in config.value("cpu_sensor_ids", type=str):
+    for id in config.value("cpu_sensor_ids", type=list):
         item = QtWidgets.QTreeWidgetItem(parent)
         for sensor in sensors:
             if sensor.Identifier == id:
@@ -70,7 +70,7 @@ def read_settings(config, ui, hwmon):
 
     # Selected GPU sensors
     parent = ui.treeWidgetSelectedGPUSensors
-    for id in config.value("gpu_sensor_ids", type=str):
+    for id in config.value("gpu_sensor_ids", type=list):
         item = QtWidgets.QTreeWidgetItem(parent)
         for sensor in sensors:
             if sensor.Identifier == id:

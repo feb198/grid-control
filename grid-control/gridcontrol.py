@@ -9,28 +9,28 @@ import threading
 
 import grid
 import helper
-import openhwmon
+import librehwmon
 import polling
 import serial
 import settings
-from PyQt5 import QtCore, QtWidgets, QtGui
-from ui.mainwindow import Ui_MainWindow
+from PySide6 import QtCore, QtWidgets, QtGui
+from ui.ui_mainwindow import Ui_MainWindow
 
-# Define status icons (available in the resource file built with "pyrcc5"
+# Define status icons (available in the resource file built with "pyside6-rcc.exe")
 ICON_RED_LED = ":/icons/led-red-on.png"
 ICON_GREEN_LED = ":/icons/green-led-on.png"
 
 class GridControl(QtWidgets.QMainWindow):
-    """Create the UI, based on PyQt5.
-    The UI elements are defined in "mainwindow.py" and resource file "resources_rc.py", created in QT Designer.
+    """Create the UI, based on PySide6.
+    The UI elements are defined in "ui_mainwindow.py" and resource file "rc_resources.py", created in QT Designer.
 
-    To update "mainwindow.py":
-        Run "pyuic5.exe --from-imports mainwindow.ui -o mainwindow.py"
+    To update "ui_mainwindow.py":
+        Run "pyside6-uic.exe --from-imports mainwindow.ui -o ui_mainwindow.py"
 
-    To update "resources_rc.py":
-        Run "pyrcc5.exe resources.qrc -o resource_rc.py"
+    To update "rc_resources.py":
+        Run "pyside6-rcc.exe resources.qrc -o rc_resource.py"
 
-    Note: Never modify "mainwindow.py" or "resource_rc.py" manually.
+    Note: Never modify "ui_mainwindow.py" or "rc_resources.py" manually.
     """
 
     def __init__(self):
@@ -50,9 +50,9 @@ class GridControl(QtWidgets.QMainWindow):
         # Serial communication object
         self.ser = serial.Serial()
 
-        # Initialize WMI communication with OpenHardwareMonitor
+        # Initialize WMI communication with LibreHardwareMonitor
         # "initialize_hwmon()" returns a WMI object
-        self.hwmon = openhwmon.initialize_hwmon()
+        self.hwmon = librehwmon.initialize_hwmon()
 
         # QSettings object for storing the UI configuration in the OS native repository (Registry for Windows, ini-file for Linux)
         # In Windows, parameters will be stored at HKEY_CURRENT_USER/SOFTWARE/GridControl/App
@@ -69,8 +69,8 @@ class GridControl(QtWidgets.QMainWindow):
 
 
 
-        # Populates the tree widget on tab "Sensor Config" with values from OpenHardwareMonitor
-        openhwmon.populate_tree(self.hwmon, self.ui.treeWidgetHWMonData, self.ui.checkBoxStartSilently.isChecked())
+        # Populates the tree widget on tab "Sensor Config" with values from LibreHardwareMonitor
+        librehwmon.populate_tree(self.hwmon, self.ui.treeWidgetHWMonData, self.ui.checkBoxStartSilently.isChecked())
 
         # System tray icon
         self.trayIcon = SystemTrayIcon(QtGui.QIcon(QtGui.QPixmap(":/icons/grid.png")), self)
@@ -299,11 +299,11 @@ class GridControl(QtWidgets.QMainWindow):
     def setup_ui_design(self):
         """Define UI parameters that cannot be configured in QT Creator directly."""
 
-        # "OpenHardwareMonitor tree widget" configuration
+        # "LibreHardwareMonitor tree widget" configuration
         self.ui.treeWidgetHWMonData.setHeaderLabels(["Node", "ID", "Temp (at init)"])
         self.ui.treeWidgetHWMonData.expandAll()
         self.ui.treeWidgetHWMonData.setSortingEnabled(False)
-        self.ui.treeWidgetHWMonData.sortByColumn(0, 0)
+        self.ui.treeWidgetHWMonData.sortByColumn(0, QtCore.Qt.SortOrder.AscendingOrder)
         self.ui.treeWidgetHWMonData.setColumnWidth(0, 200)
         self.ui.treeWidgetHWMonData.setColumnWidth(1, 100)
         self.ui.treeWidgetHWMonData.setColumnWidth(2, 50)
@@ -827,4 +827,4 @@ if __name__ == "__main__":
     win.setFixedSize(win.size())
 
     # Start QT application
-    sys.exit(app.exec_())
+    sys.exit(app.exec())

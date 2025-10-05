@@ -2,7 +2,7 @@
     polling.py
     ----------
     Implements a QThread for polling the Grid unit for fan rpm and voltage data,
-    as well as CPU and GPU temperatures from OpenHardwareMonitor.
+    as well as CPU and GPU temperatures from LibreHardwareMonitor.
 """
 
 import sys
@@ -10,11 +10,11 @@ import time
 
 import pythoncom
 import wmi
-from PyQt5 import QtCore
+from PySide6 import QtCore
 
 import grid
 import helper
-import openhwmon
+import librehwmon
 
 # Define status icons (available in the resource file built with "pyrcc5"
 ICON_RED_LED = ":/icons/led-red-on.png"
@@ -24,43 +24,43 @@ class PollingThread(QtCore.QThread):
     """QThread, performs the following:
         - Get fan rpm from Grid
         - Get fan voltage from Grid
-        - Get CPU and GPU temperatures from OpenHardwareMonitor"""
+        - Get CPU and GPU temperatures from LibreHardwareMonitor"""
 
     # Signals handling the fan rpm
-    rpm_signal_fan1 = QtCore.pyqtSignal(str)
-    rpm_signal_fan2 = QtCore.pyqtSignal(str)
-    rpm_signal_fan3 = QtCore.pyqtSignal(str)
-    rpm_signal_fan4 = QtCore.pyqtSignal(str)
-    rpm_signal_fan5 = QtCore.pyqtSignal(str)
-    rpm_signal_fan6 = QtCore.pyqtSignal(str)
+    rpm_signal_fan1 = QtCore.Signal(str)
+    rpm_signal_fan2 = QtCore.Signal(str)
+    rpm_signal_fan3 = QtCore.Signal(str)
+    rpm_signal_fan4 = QtCore.Signal(str)
+    rpm_signal_fan5 = QtCore.Signal(str)
+    rpm_signal_fan6 = QtCore.Signal(str)
 
     # Signals handling the fan voltage
-    voltage_signal_fan1 = QtCore.pyqtSignal(str)
-    voltage_signal_fan2 = QtCore.pyqtSignal(str)
-    voltage_signal_fan3 = QtCore.pyqtSignal(str)
-    voltage_signal_fan4 = QtCore.pyqtSignal(str)
-    voltage_signal_fan5 = QtCore.pyqtSignal(str)
-    voltage_signal_fan6 = QtCore.pyqtSignal(str)
+    voltage_signal_fan1 = QtCore.Signal(str)
+    voltage_signal_fan2 = QtCore.Signal(str)
+    voltage_signal_fan3 = QtCore.Signal(str)
+    voltage_signal_fan4 = QtCore.Signal(str)
+    voltage_signal_fan5 = QtCore.Signal(str)
+    voltage_signal_fan6 = QtCore.Signal(str)
 
     # Signals handling the pixmap icon (red or green led) indicating the fan status
-    pixmap_signal_fan1 = QtCore.pyqtSignal(str)
-    pixmap_signal_fan2 = QtCore.pyqtSignal(str)
-    pixmap_signal_fan3 = QtCore.pyqtSignal(str)
-    pixmap_signal_fan4 = QtCore.pyqtSignal(str)
-    pixmap_signal_fan5 = QtCore.pyqtSignal(str)
-    pixmap_signal_fan6 = QtCore.pyqtSignal(str)
+    pixmap_signal_fan1 = QtCore.Signal(str)
+    pixmap_signal_fan2 = QtCore.Signal(str)
+    pixmap_signal_fan3 = QtCore.Signal(str)
+    pixmap_signal_fan4 = QtCore.Signal(str)
+    pixmap_signal_fan5 = QtCore.Signal(str)
+    pixmap_signal_fan6 = QtCore.Signal(str)
 
     # Signals handling CPU and GPU temperatures
-    cpu_temp_signal = QtCore.pyqtSignal(int)
-    gpu_temp_signal = QtCore.pyqtSignal(int)
+    cpu_temp_signal = QtCore.Signal(int)
+    gpu_temp_signal = QtCore.Signal(int)
 
-    hwmon_status_signal = QtCore.pyqtSignal(str)
+    hwmon_status_signal = QtCore.Signal(str)
 
     # Signal to indicate fan speed should be updated
-    update_signal = QtCore.pyqtSignal()
+    update_signal = QtCore.Signal()
 
     # Signal handling exceptions that may occur in the running thread
-    exception_signal = QtCore.pyqtSignal(str)
+    exception_signal = QtCore.Signal(str)
 
     def __init__(self, polling_interval, ser, lock, cpu_sensor_ids, gpu_sensor_ids, cpu_calc, gpu_calc):
         """ Constructor for the polling thread."""
@@ -185,7 +185,7 @@ class PollingThread(QtCore.QThread):
     def run(self):
         """Main thread processing loop:
             - Poll the Grid for fan rpm and voltage.
-            - Poll OpenHardwareMonitor for CPU and GPU temperatures
+            - Poll LibreHardwareMonitor for CPU and GPU temperatures
             - Emit signals:
                 - Fan rpm's
                 - Fan voltages
@@ -202,15 +202,15 @@ class PollingThread(QtCore.QThread):
             pythoncom.CoInitialize()
 
             # A new WMI object is needed in the thread
-            hwmon_thread_wmi = wmi.WMI(namespace="root\OpenHardwareMonitor")
+            hwmon_thread_wmi = wmi.WMI(namespace=r"root\LibreHardwareMonitor")
 
             # "keep_running" should be True before starting the while loop
             self.keep_running = True
 
             # Start the main polling loop
             while self.keep_running:
-                # Get current temperature sensors from OpenHardwareMonitor
-                temperature_sensors = openhwmon.get_temperature_sensors(hwmon_thread_wmi)
+                # Get current temperature sensors from LibreHardwareMonitor
+                temperature_sensors = librehwmon.get_temperature_sensors(hwmon_thread_wmi)
 
                 # Calculate CPU and GPU temperatures
                 current_cpu_temp = self.calculate_temp(temperature_sensors, "cpu")
@@ -220,7 +220,7 @@ class PollingThread(QtCore.QThread):
                 self.cpu_temp_signal.emit(current_cpu_temp)
                 self.gpu_temp_signal.emit(current_gpu_temp)
 
-                # If both CPU and GPU temp are 0, set OpenHardwareMonitor status to "Disconnected"
+                # If both CPU and GPU temp are 0, set LibreHardwareMonitor status to "Disconnected"
                 if current_cpu_temp == current_gpu_temp == 0:
                     self.hwmon_status_signal.emit('<b><font color="red">---</font></b>')
                 else:

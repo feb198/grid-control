@@ -1,39 +1,39 @@
 """
-    openhwmon.py
+    librehwmon.py
     ------------
-    Implements communication with OpenHardwareMonitor using WMI.
+    Implements communication with LibreHardwareMonitor using WMI.
     The module also provides functions for populating the QT Tree Widget with hardware nodes and temperature sensors.
 """
 
 import sys
 
 import wmi
-from PyQt5 import QtCore, QtWidgets, QtGui
+from PySide6 import QtCore, QtWidgets, QtGui
 
 import helper
 import time
 
 
 def initialize_hwmon():
-    """Create a WMI object and verify that OpenHardwareMonitor is installed."""
+    """Create a WMI object and verify that LibreHardwareMonitor is installed."""
 
-    # Access the OpenHWMon WMI interface
+    # Access the LibreHardwareMonitor WMI interface
     try:
-        hwmon = wmi.WMI(namespace="root\OpenHardwareMonitor")
+        hwmon = wmi.WMI(namespace=r"root\LibreHardwareMonitor")
         return hwmon
 
-    # WMI exception (e.g. no namespace "root\OpenHardwareMonitor" indicates OpenHWMon is not installed
+    # WMI exception (e.g. no namespace "root\LibreHardwareMonitor" indicates LibreHardwareMonitor is not installed
     except:
-        helper.show_error("OpenHardwareMonitor WMI data not found.\n\n"
-                          "Please make sure that OpenHardwareMonitor is installed.\n\n"
+        helper.show_error("LibreHardwareMonitor WMI data not found.\n\n"
+                          "Please make sure that LibreHardwareMonitor is installed.\n\n"
                           "Latest version is available at:\n\n"
-                          "http://openhardwaremonitor.org\n\n"
+                          "https://github.com/LibreHardwareMonitor/LibreHardwareMonitor\n\n"
                           "The application will now exit.")
         sys.exit(0)
 
 
 def populate_tree(hwmon, treeWidget, start_silently):
-    """Read sensor data from OpenHardwareMonitor using the available WMI interface,
+    """Read sensor data from LibreHardwareMonitor using the available WMI interface,
     and populated the tree widget with the hardware nodes and sensors.
 
     Hardware nodes contains the following data, note that Parent = "" indicates a top node in the tree:
@@ -82,7 +82,7 @@ def populate_tree(hwmon, treeWidget, start_silently):
     # Get a list of temperature sensor nodes (filtered to optimize WMI performance)
     sensors = hwmon.Sensor(["Name", "Parent", "Value", "Identifier"], SensorType="Temperature")
 
-    # No sensor data (empty list) indicates OpenHWMon is not running
+    # No sensor data (empty list) indicates LibreHardwareMonitor is not running
     if not sensors:
         print("OHM not running!")
 
@@ -92,7 +92,7 @@ def populate_tree(hwmon, treeWidget, start_silently):
         dialog.resize(400,100)
         dialog.layout = QtWidgets.QGridLayout(dialog)
         label = QtWidgets.QLabel()
-        label.setText("Waiting for OpenHardwareMonitor to start.\n\n" + "Retries: 30")
+        label.setText("Waiting for LibreHardwareMonitor to start.\n\n" + "Retries: 30")
         label.setStyleSheet("font: 12pt;")
         dialog.layout.addWidget(label)
 
@@ -104,7 +104,7 @@ def populate_tree(hwmon, treeWidget, start_silently):
             print("Sleeping...")
             QtCore.QCoreApplication.processEvents()
             time.sleep(1)
-            label.setText("Waiting for OpenHardwareMonitor to start.\n\n" + "Retries: " + str(retries))
+            label.setText("Waiting for LibreHardwareMonitor to start.\n\n" + "Retries: " + str(retries))
             print("Retrying...", retries)
 
             sensors = hwmon.Sensor(["Name", "Parent", "Value", "Identifier"], SensorType="Temperature")
@@ -113,8 +113,8 @@ def populate_tree(hwmon, treeWidget, start_silently):
             else:
                 retries -= 1
 
-        #helper.show_notification("No data from OpenHardwareMonitor found.\n\n"
-        #                         "Please make sure OpenHardwareMonitor is running.\n\n")
+        #helper.show_notification("No data from LibreHardwareMonitor found.\n\n"
+        #                         "Please make sure LibreHardwareMonitor is running.\n\n")
 
     # Get a list of hardware nodes
     hardwares = hwmon.Hardware()

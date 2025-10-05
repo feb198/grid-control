@@ -8,7 +8,7 @@ import io
 import sys
 import traceback
 
-from PyQt5 import QtCore, QtWidgets, QtGui
+from PySide6 import QtCore, QtWidgets, QtGui
 
 
 def excepthook(excType, excValue, tracebackobj):
